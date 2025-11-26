@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastri</title>
+</head>
+<body>
+    <form action="{{ url_for('auth.register')}}" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" name="name" placeholder="nome" required>
+
+        <label for="username">Nome de usuário:</label>
+        <input type="text" name="username" placeholder="nome de usuário" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" name="password" placeholder="senha" required>
+
+        <button>Enviar</button>
+    </form>
+</body>
+</html>

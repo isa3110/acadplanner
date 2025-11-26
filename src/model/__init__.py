@@ -6,7 +6,7 @@ from typing import List
 from flask_login import UserMixin
 from config.config_database import USER, HOST, PORT, DATABASE, PASSWORD
 from datetime import date
-from insert import insert_relevancia, insert_tipo_evento
+from config.insert_domtypes import insert_relevancia, insert_tipo_evento
 
 ENGINE = create_engine(f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
 session = Session(ENGINE)
