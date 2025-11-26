@@ -1,8 +1,8 @@
+from config.insert_domtypes import insert_relevancia, insert_tipo_evento
 from models import engine, Base, User, Relevancia, TipoEvento
 from sqlalchemy.orm import sessionmaker
-from flask import Flask
 from flask_login import LoginManager
-from config.insert_domtypes import insert_relevancia, insert_tipo_evento
+from flask import Flask
 
 def config(app: Flask) -> None:
     app.secret_key = 'LASJDHJDWUABBDAWDB@##'

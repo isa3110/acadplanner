@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
 from models import User, engine
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 
 auth_bp = Blueprint('auth', __name__, template_folder='templates', static_folder='static')
 
@@ -15,7 +15,8 @@ def register():
         password = request.form.get('password')
 
         # O operador | funciona como um OU -> no bd, ele pega o que encontrar primeiro: OU o email OU o user do usuario
-        with Session(engine) as session:
+        Session = sessionmaker(bind=engine)
+        with Session() as session:
             existing_user = session.query(User).filter((User.username == username) | (User.email == email)).first()
             if existing_user:
                 flash('Usuário ou login já cadastrado.', category='error')
@@ -44,7 +45,8 @@ def login():
         password = request.form.get('password')
 
         # O operador | funciona como um OU -> no bd, ele pega o que encontrar primeiro: OU o email OU o user do usuario
-        with Session(engine) as session:
+        Session = sessionmaker(bind=engine)
+        with Session() as session:
             user = session.query(User).filter((User.email == email_or_username) | (User.username == email_or_username)).first()
             
             if user and check_password_hash(user.password, password):
