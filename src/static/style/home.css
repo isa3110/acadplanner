@@ -1,0 +1,133 @@
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0 40px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            background: #2300A3;
+            color: white;
+            width: 45%;
+            padding: 60px 50px;
+            border-radius: 10px;
+            min-width: 300px;
+        }
+
+        .box h1 {
+            font-size: 90px;
+            margin: 0;
+            line-height: 80px;
+            font-weight: 900;
+        }
+
+        .box p {
+            margin-top: 40px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .right-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            width: 40%;
+            min-width: 280px;
+        }
+
+        .btn {
+            width: 200px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #2300A3;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #3600d1;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            color: #2300A3;
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                padding: 20px;
+                gap: 40px;
+            }
+
+            .box h1 {
+                font-size: 70px;
+                line-height: 65px;
+            }
+
+            .box p {
+                font-size: 13px;
+            }
+
+            .right-area {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                justify-content: flex-start;
+                height: auto;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .box {
+                width: 100%;
+                padding: 40px 20px;
+            }
+
+            .box h1 {
+                font-size: 60px;
+                line-height: 55px;
+            }
+
+            .right-area {
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box h1 {
+                font-size: 45px;
+                line-height: 45px;
+            }
+
+            .box p {
+                font-size: 12px;
+            }
+
+            .btn {
+                width: 160px;
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+        }

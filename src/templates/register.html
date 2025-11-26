@@ -4,22 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastri</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/registro.css') }}">
 </head>
 <body>
-    <form action="{{ url_for('auth.register')}}" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" name="name" placeholder="nome" required>
+    <div class="box">
+        <h1>ACAD<br>PLANNER</h1>
 
-        <label for="username">Nome de usuário:</label>
-        <input type="text" name="username" placeholder="nome de usuário" required>
+        <p>SUA AGENDA ACADÊMICA.<br>
+        ANOTE DATAS. NÃO PERCA PRAZOS. SEJA RESPONSÁVEL.</p>
+    </div>
+    <div class="caixa">
+        <img src="{{ url_for('static', filename='images/caixa.png') }}"  class="imagem">
+        <form action="{{ url_for('auth.register')}}" method="post" class="formulario">
+            
+            <input type="text" name="name" placeholder="nome" required>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" placeholder="email" required>
+            
+            <input type="text" name="username" placeholder="nome de usuário" required>
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="password" placeholder="senha" required>
+           
+            <input type="email" name="email" placeholder="email" required>
 
-        <button>Enviar</button>
-    </form>
+            
+            <input type="password" name="password" placeholder="senha" required>
+
+            <button class="btn">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>
