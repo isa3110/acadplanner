@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship, mapped_column
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session
 from typing import List
 from flask_login import UserMixin
-from models.config_database import USER, HOST, PORT, DATABASE, PASSWORD
+from config.config_database import USER, HOST, PORT, DATABASE, PASSWORD
 from datetime import date
 
 engine = create_engine(f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
