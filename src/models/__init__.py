@@ -4,12 +4,11 @@ from sqlalchemy.orm import relationship, mapped_column
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session
 from typing import List
 from flask_login import UserMixin
-from config.config_database import USER, HOST, PORT, DATABASE, PASSWORD
+from models.config_database import USER, HOST, PORT, DATABASE, PASSWORD
 from datetime import date
-from config.insert_domtypes import insert_relevancia, insert_tipo_evento
 
-ENGINE = create_engine(f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
-session = Session(ENGINE)
+engine = create_engine(f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
+session = Session(engine)
 
 
 class Base(DeclarativeBase, UserMixin):
@@ -61,7 +60,3 @@ class DataEvento(Base):
     
     tipo_evento_id: Mapped[int] = mapped_column(ForeignKey("tipo_evento.id"))
     tipo_evento: Mapped["TipoEvento"] = relationship(back_populates="eventos")
-
-# Inserindo dados de tabelas de domínio
-insert_relevancia()
-insert_tipo_evento()
