@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Acad Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
 </head>
 <body>
-    <h1>Página inicial</h1>
-    <a href="{{ url_for('auth.register') }}"><button>Register</button></a>
-    <a href="{{ url_for('auth.login') }}"><button>Login</button></a>
+
+    <div class="box">
+        <h1>ACAD<br>PLANNER</h1>
+
+        <p>SUA AGENDA ACADÊMICA.<br>
+        ANOTE DATAS. NÃO PERCA PRAZOS. SEJA RESPONSÁVEL.</p>
+    </div>
+
+    <div class="right-area">
+        <div class="subtitle">SUA PRIMEIRA VEZ AQUI?</div>
+        <a href="{{ url_for('auth.register') }}">
+            <button class="btn">REGISTRE-SE</button>
+        </a>
+
+        <div class="subtitle">JÁ É CADASTRADO?</div>
+        <a href="{{ url_for('auth.login') }}">
+            <button class="btn">LOGIN</button>
+        </a>
+    </div>
+
 </body>
 </html>

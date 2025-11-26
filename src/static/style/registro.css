@@ -1,0 +1,77 @@
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0 40px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            background: #2300A3;
+            color: white;
+            width: 45%;
+            padding: 60px 50px;
+            border-radius: 10px;
+            min-width: 300px;
+        }
+
+        .box h1 {
+            font-size: 90px;
+            margin: 0;
+            line-height: 80px;
+            font-weight: 900;
+        }
+
+        .box p {
+            margin-top: 40px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .caixa {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 40%;
+            min-width: 280px;
+            text-align: center;
+            align-items: center;
+        }
+        .formulario input {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            margin: 10px;
+            width: 250px;
+            position: relative;
+            bottom: 280px;
+            
+        }
+        .btn {
+            width: 100px;
+            padding: 8px;
+            border: none;
+            border-radius: 8px;
+            background: #2300A3;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+            position: relative;
+            bottom: 280px;
+            
+        }
+       .imagem {
+            width: 400px;
+            margin-top: 250px;
+            resize: -1;
+            height: 300px;
+            border-radius: 50px;
+        }
