@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}">
 </head>
 <body>
-     <form action="{{ url_for('auth.login') }}" method="post">
-        <label for="email">Email ou nome de usuário</label>
+    <div class="box">
+        <h1>ACAD<br>PLANNER</h1>
+
+        <p>SUA AGENDA ACADÊMICA.<br>
+        ANOTE DATAS. NÃO PERCA PRAZOS. SEJA RESPONSÁVEL.</p>
+    </div>
+    <div class="caixa">
+        <p class="titulo">Login</p>
+        <img src="{{ url_for('static', filename='images/caixa.png') }}" class="imagem">
+        <form action="{{ url_for('auth.login') }}" method="post" class="formulario">
+        <label for="email"></label>
         <input type="text" name="email_or_username" placeholder="Email ou nome de usuário">
 
-        <label for="senha">Senha</label>
+        <label for="senha"></label>
         <input type="password" name="password" placeholder="Senha">
 
-        <button>Enviar</button>
+        <button class="btn">Enviar</button>
     </form>
+    </div>
+     
 </body>
 </html>

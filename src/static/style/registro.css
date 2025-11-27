@@ -33,7 +33,7 @@
             font-size: 14px;
             letter-spacing: 1px;
         }
-        .caixa {
+                .caixa {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -70,8 +70,20 @@
         }
        .imagem {
             width: 400px;
-            margin-top: 250px;
+            margin-top: 200px;
             resize: -1;
-            height: 300px;
+            height: 280px;
             border-radius: 50px;
+            position: relative;
+            bottom: 10px;
+        }
+        .titulo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            top: 200px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #2300A3;
+            font-size: 30px;
         }
