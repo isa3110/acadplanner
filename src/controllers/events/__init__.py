@@ -14,8 +14,21 @@ events_bp = Blueprint('events', __name__, template_folder='templates', static_fo
 @login_required
 def events():
     # Página de visualização dos eventos. Será disposto no HTML como cards de datas, onde a ordem será do mais próximo ao mais distante.
-    datas = utils.get_user_events(current_user.id)
+    with Session(engine) as session:
+        # datas = session.query(DataEvento).filter(DataEvento.user_id == current_user.id).order_by(desc(DataEvento.data)).all()
+        datas_usuario = (
+            select(
+                DataEvento.id,
+                DataEvento.titulo_evento,
+                DataEvento.data,
+                Relevancia.nivel.label("relevancia"),
+                TipoEvento.nome.label("tipo_evento"),
+            )
+            .join(Relevancia, DataEvento.relevancia_id == Relevancia.id)
+            .join(TipoEvento, DataEvento.tipo_evento_id == TipoEvento.id)
+        )
 
+        datas = session.execute(datas_usuario).all()
     return render_template('events.html', datas=datas)
 
 @events_bp.route('/events/add', methods=['GET', 'POST'])
@@ -105,11 +118,9 @@ def events_edit(event_id):
                 return redirect(url_for('events.events'))
     
     if request.method == "GET":
-        with engine.connect() as conn:
-            event = conn.execute(
-                select(DataEvento).where(DataEvento.id == event_id)
-            ).scalars().first()
-
+        with Session(engine) as session:
+            event = session.query(DataEvento).filter(DataEvento.id == event_id).first() 
+            
             niveis_relevancia = utils.get_relevancy_levels()
             tipo_eventos = utils.get_event_types()
         

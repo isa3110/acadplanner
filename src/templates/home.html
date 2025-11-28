@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+
+{% block head %}
     <title>Acad Planner</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
-</head>
-<body>
+
+{% endblock head %}
+
+{% block content %}
 
     <div class="box">
         <h1>ACAD<br>PLANNER</h1>
@@ -27,5 +27,4 @@
         </a>
     </div>
 
-</body>
-</html>
+{% endblock content %}

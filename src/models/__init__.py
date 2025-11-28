@@ -1,4 +1,4 @@
-from sqlalchemy import String, Integer, Column, ForeignKey, Date
+from sqlalchemy import String, Integer, Column, ForeignKey, Date, Text
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship, mapped_column
 from sqlalchemy.orm import DeclarativeBase, Mapped
@@ -27,7 +27,7 @@ class User(Base):
     name: Mapped[str] = mapped_column(String(120), nullable=False)
     username: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
     email: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
-    password: Mapped[str] = mapped_column(String(100), nullable=False)
+    password: Mapped[str] = mapped_column(Text, nullable=False)
 
     eventos: Mapped[List["DataEvento"]] = relationship(back_populates="user")
 

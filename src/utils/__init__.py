@@ -2,33 +2,28 @@
 
 from models import engine, DataEvento, Relevancia, TipoEvento
 from sqlalchemy import select, asc
-from typing import Sequence
+from typing import List
+from sqlalchemy.orm import Session
 
 def get_relevancy_levels():
     # Função para retornar os dados de relevância dos eventos -> Alto, baixo, médio
-    with engine.connect() as conn:
-        niveis_relevancia: Sequence[Relevancia] = conn.execute(
-            select(Relevancia)
-        ).scalars().all()
+    with Session(engine) as session:
+        niveis_relevancia: List[Relevancia] = session.query(Relevancia).all()
     return niveis_relevancia
 
 
 def get_event_types():
     # Função para retornar os tipos de eventos -> Prova, trabalho, apresentação, etc.
-    with engine.connect() as conn:
-        tipo_eventos: Sequence[TipoEvento] = conn.execute(
-            select(TipoEvento)
-        ).scalars().all()
+    with Session(engine) as session:
+        tipo_eventos: List[TipoEvento] = session.query(TipoEvento).all()
     return tipo_eventos
 
 
 def get_user_events(user_id):
     # Função para retornar os eventos de um usuário (no caso, seria o que está logado).
     # Os dados são retornados de forma ascendente pela data do evento (o mais antigo vem primeiro).
-    with engine.connect() as conn:
-        datas: Sequence[DataEvento] = conn.execute(
-            select(DataEvento).where(DataEvento.user_id == user_id).order_by(asc(DataEvento.data))
-        ).scalars().all()
+    with Session(engine) as session:
+        datas: List[DataEvento] = session.query(DataEvento).filter(DataEvento.user_id == user_id).order_by(asc(DataEvento.data)).all()
     return datas
 
 
