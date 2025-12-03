@@ -35,8 +35,8 @@
 
                 <!-- DATA COM COR DE ACORDO COM A RELEVÂNCIA -->
                 <div class="event-date 
-                    {% if data.relevancia.nivel == 'Alta' %}date-high
-                    {% elif data.relevancia.nivel == 'Média' %}date-medium
+                    {% if data.relevancia == 'Alta' %}date-high 
+                    {% elif data.relevancia == 'Média' %}date-medium
                     {% else %}date-low{% endif %}
                 ">
                     {{ data.data.strftime('%d/%m/%Y') }}
@@ -46,9 +46,9 @@
 
                     <!-- BADGE DE RELEVÂNCIA -->
                     <div class="event-relevance">
-                        {% if data.relevancia.nivel == "Alta" %}
+                        {% if data.relevancia == "Alta" %}
                             <span class="badge badge-high">Relevância: Alta</span>
-                        {% elif data.relevancia.nivel == "Média" %}
+                        {% elif data.relevancia == "Média" %}
                             <span class="badge badge-medium">Relevância: Média</span>
                         {% else %}
                             <span class="badge badge-low">Relevância: Baixa</span>

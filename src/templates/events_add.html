@@ -31,7 +31,7 @@
                             <select class="form-select" id="tipo_evento_id" name="tipo_evento_id" required>
                                 <option value="" selected disabled>Selecione o tipo</option>
                                 {% for tipo in tipo_eventos %}
-                                <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
+                                    <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -41,7 +41,7 @@
                             <select class="form-select" id="relevancia_id" name="relevancia_id" required>
                                 <option value="" selected disabled>Selecione a relevância</option>
                                 {% for nivel in niveis_relevancia %}
-                                <option value="{{ nivel.id }}">{{ nivel.nivel }}</option>
+                                    <option value="{{ nivel.id }}">{{ nivel.nivel }}</option>
                                 {% endfor %}
                             </select>
                         </div>
