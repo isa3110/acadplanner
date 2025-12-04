@@ -73,3 +73,22 @@ body {
 input, textarea, select, button {
   font-family: inherit;
 }
+
+/* Header / Navigation */
+.site-header { background: var(--surface); border-bottom: 1px solid #eef2f7; }
+.site-header .header-inner { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+.brand { font-weight:900; color:var(--accent); text-decoration:none; font-size:20px; letter-spacing:0.5px; }
+.brand span { color: var(--primary-1); margin-left:4px; }
+.main-nav a { margin-left:14px; color:var(--text); text-decoration:none; font-weight:700; }
+.main-nav a:hover { color:var(--accent); }
+
+/* Flash / alerts */
+.flash-area { margin: 18px auto; }
+.alerts { display:flex; flex-direction:column; gap:10px; }
+.alert { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 12px; border-radius:8px; box-shadow: 0 6px 12px rgba(9,30,66,0.04); }
+.alert-message { flex:1; }
+.alert-close { background:transparent; border:none; font-size:18px; line-height:1; cursor:pointer; color:inherit; }
+.alert-success { background: #E6F7EE; color: #0b6b2d; }
+.alert-danger, .alert-error { background: #FFECEC; color: #9b2b2b; }
+.alert-warning { background: #FFF4E5; color: #8a5a00; }
+.alert-info { background: #E8F4FF; color: #0b5e88; }

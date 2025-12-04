@@ -11,6 +11,22 @@
 
 </head>
 <body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="{{ url_for('main.home') }}">ACAD<span>PLANNER</span></a>
+            <nav class="main-nav" aria-label="Principal">
+               
+                <a href="{{ url_for('events.events_add') }}"> Meus Eventos</a>
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
+               
+            </nav>
+        </div>
+    </header>
+
+    <div class="flash-area container">
+        {% include "components/flash.html" %}
+    </div>
+
     {% block content %}
     
     {% endblock content %}

@@ -1,9 +1,14 @@
 {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
+        <div class="alerts">
         {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-                {{ message }}
+            {# normalize common category names (error -> danger) #}
+            {% set cls = 'danger' if category == 'error' else category %}
+            <div class="alert alert-{{ cls }}" role="alert">
+                <span class="alert-message">{{ message }}</span>
+                <button type="button" class="alert-close" aria-label="Fechar" onclick="this.parentElement.style.display='none'">×</button>
             </div>
         {% endfor %}
+        </div>
     {% endif %}
 {% endwith %}
